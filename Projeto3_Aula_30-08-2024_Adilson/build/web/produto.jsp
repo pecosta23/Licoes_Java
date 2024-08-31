@@ -34,8 +34,7 @@
             out.println("<br><b>Valor total com desconto: </b>" + (prod.getValor()-prod.calcDesc(prod.getValor())));
            
             out.println("<br><b>Promoção, desconto: </b>" + prod.calcDesc20(prod.getValor2()));
-            out.println("<br><b>Valor total com desconto: </b>" + (prod.getValor()-prod.calcDesc20(prod.getValor2())));
-           
+            out.println("<br><b>Valor total com desconto: </b>" + (prod.getValor()-prod.calcDesc20(prod.getValor2())));  
 
         %>
     </body>
