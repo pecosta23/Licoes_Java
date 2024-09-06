@@ -7,8 +7,8 @@
 <!-- the Compile on Save feature is turned off for the project. -->
 <!-- You can turn off the Compile on Save (or Deploy on Save) setting -->
 <!-- in the project's Project Properties dialog box.-->
-<project name="Aula_22-08-2024" default="default" basedir=".">
-    <description>Builds, tests, and runs the project Aula_22-08-2024.</description>
+<project name="Projeto1_Aula_22-08-2024_Adilson" default="default" basedir=".">
+    <description>Builds, tests, and runs the project Projeto1_Aula_22-08-2024_Adilson.</description>
     <import file="nbproject/build-impl.xml"/>
     <!--
 

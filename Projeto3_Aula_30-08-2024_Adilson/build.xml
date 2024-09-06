@@ -7,8 +7,8 @@
 <!-- the Compile on Save feature is turned off for the project. -->
 <!-- You can turn off the Compile on Save (or Deploy on Save) setting -->
 <!-- in the project's Project Properties dialog box.-->
-<project name="WebAppProd" default="default" basedir=".">
-    <description>Builds, tests, and runs the project WebAppProd.</description>
+<project name="Projeto3_Aula_30-08-2024_Adilson" default="default" basedir=".">
+    <description>Builds, tests, and runs the project Projeto3_Aula_30-08-2024_Adilson.</description>
     <import file="nbproject/build-impl.xml"/>
     <!--
 
