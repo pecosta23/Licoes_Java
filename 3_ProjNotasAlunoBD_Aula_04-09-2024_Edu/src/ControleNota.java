@@ -11,6 +11,8 @@ public class ControleNota {
     private PreparedStatement sql;
     private ResultSet lista;
     
+    Aluno aluno = new Aluno();
+    
     public void Conexao(){
         //criacao das cariaveis para acesso ao mysql
         String nomeservidor = "Localhost:3306";
@@ -35,4 +37,63 @@ public class ControleNota {
             JOptionPane.showMessageDialog(null, "Erro ao conectar ao banco de dados");
         }    
     }      
+    public void Cadastrar(int rgm, String nm, double n1, double n2){
+        //armazenando os dados nos atributos da classe Aluno
+        aluno.setRgm(rgm);
+        aluno.setNome(nm);
+        aluno.setNota1(n1);
+        aluno.setNota2(n2);   
+        try{ 
+        sql = conexao.prepareStatement("Insert into alunos (rgm, nome, nota1, nota2) values (?,?,?,?)");
+        sql.setInt(1, aluno.getRgm());
+        sql.setString(2, aluno.getNome());
+        sql.setDouble(3, aluno.getNota1());
+        sql.setDouble(4, aluno.getNota2());
+        int verifica = sql.executeUpdate();
+        if (verifica > 0){
+            JOptionPane.showMessageDialog(null,"Registro com sucesso");
+        }
+        else{
+              JOptionPane.showMessageDialog(null, "Erro ao registrar");
+        }  
+        }
+        catch (Exception e){
+            JOptionPane.showMessageDialog(null,"RGM já cadastrado!");
+        }
+    } 
+    public void Listar(){
+        try{
+            sql = conexao.prepareStatement("select * from alunos");
+            lista = sql.executeQuery();
+            while(lista.next()){
+                System.out.println(" RGM: "+ lista.getString("rgm") + " Nome: " + lista.getString("nome") 
+                        + " Nota 1: " + lista.getString("nota1") + " Nota 2: " + lista.getString("nota2"));
+            }
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null,"Erro SQL!");
+        }
+    }
+    public String Consultar(int numrgm){
+        String dados="";
+        try{
+            sql = conexao.prepareStatement("select * from alunos where rgm = ?");
+            sql.setInt(1, numrgm);
+            lista = sql.executeQuery();
+            if (lista.next()){
+                dados += lista.getString("nome");
+                dados += ";";
+                dados += lista.getString("nota1");
+                dados += ";";
+                dados += lista.getString("nota2");
+            }
+            else{
+                JOptionPane.showMessageDialog(null,"Registro não encontrado!");
+            }
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null,"Erro SQl!");
+        }
+        return dados;
+    }
 }

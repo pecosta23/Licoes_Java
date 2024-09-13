@@ -67,6 +67,11 @@ public class FormNota extends javax.swing.JFrame {
         jLabel4.setText("Nota 2");
 
         butCadastrar.setText("Cadastrar");
+        butCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butCadastrarActionPerformed(evt);
+            }
+        });
 
         butListar.setText("Listar");
         butListar.addActionListener(new java.awt.event.ActionListener() {
@@ -76,6 +81,11 @@ public class FormNota extends javax.swing.JFrame {
         });
 
         butConsultar.setText("Consultar");
+        butConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butConsultarActionPerformed(evt);
+            }
+        });
 
         butAlterar.setText("Alterar");
         butAlterar.addActionListener(new java.awt.event.ActionListener() {
@@ -100,22 +110,6 @@ public class FormNota extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(butCadastrar)
-                        .addGap(18, 18, 18)
-                        .addComponent(butListar, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(butConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(butAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(butSair, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel3)))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
@@ -128,7 +122,23 @@ public class FormNota extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(textnota1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(textnome, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(textnota2, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                    .addComponent(textnota2, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(butCadastrar)
+                                .addGap(18, 18, 18)
+                                .addComponent(butListar, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(butConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(21, 21, 21)
+                                .addComponent(butAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(butSair, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel4)
+                                .addComponent(jLabel3)))))
                 .addContainerGap(21, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -140,7 +150,7 @@ public class FormNota extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(textNotasAlunos)
-                .addGap(18, 18, 18)
+                .addGap(51, 51, 51)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(textrgm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -157,14 +167,14 @@ public class FormNota extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jLabel4))
                     .addComponent(textnota2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 129, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(butCadastrar)
                     .addComponent(butListar)
                     .addComponent(butConsultar)
                     .addComponent(butAlterar)
                     .addComponent(butSair))
-                .addGap(23, 23, 23))
+                .addGap(41, 41, 41))
         );
 
         pack();
@@ -179,7 +189,7 @@ public class FormNota extends javax.swing.JFrame {
     }//GEN-LAST:event_textnota1ActionPerformed
 
     private void butListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butListarActionPerformed
-        // TODO add your handling code here:
+        controle.Listar();
     }//GEN-LAST:event_butListarActionPerformed
 
     private void butAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butAlterarActionPerformed
@@ -189,6 +199,25 @@ public class FormNota extends javax.swing.JFrame {
     private void butSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butSairActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_butSairActionPerformed
+
+    private void butCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butCadastrarActionPerformed
+        controle.Cadastrar(Integer.parseInt(this.textrgm.getText()),this.textnome.getText(), 
+                Double.parseDouble(this.textnota1.getText()),Double.parseDouble(this.textnota2.getText()));
+        this.textrgm.setText("");
+        this.textnome.setText("");
+        this.textnota1.setText("");
+        this.textnota2.setText("");
+        
+    }//GEN-LAST:event_butCadastrarActionPerformed
+
+    private void butConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butConsultarActionPerformed
+        String info = controle.Consultar(Integer.parseInt(this.textrgm.getText()));
+        String vetor [] = info.split(";");
+        this.textnome.setText(vetor [0]);
+        this.textnota1.setText(vetor [1]);
+        this.textnota2.setText(vetor [2]);
+        
+    }//GEN-LAST:event_butConsultarActionPerformed
 
     /**
      * @param args the command line arguments
