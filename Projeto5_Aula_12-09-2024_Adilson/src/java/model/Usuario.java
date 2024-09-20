@@ -12,6 +12,7 @@ public class Usuario {
     //atributos
     private String usuario;
     private String senha;
+    private String nome;
     
     //metodos
 
@@ -25,6 +26,10 @@ public class Usuario {
     public void setSenha(String p_senha) {
         this.senha = p_senha;
     }
+    
+    public void setNome(String p_nome) {
+        this.nome = p_nome;
+    }
 
     public String getUsuario() {
         return this.usuario;
@@ -32,6 +37,10 @@ public class Usuario {
 
     public String getSenha() {
         return this.senha;
+    }
+
+    public String getNome() {
+        return this.nome;
     }
     
 }
