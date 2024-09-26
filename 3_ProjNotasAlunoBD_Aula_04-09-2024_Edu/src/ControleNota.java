@@ -96,4 +96,39 @@ public class ControleNota {
         }
         return dados;
     }
+    public void Excluir(int numrgm){
+        try{
+            sql=conexao.prepareStatement("delete from alunos where rgm="+numrgm);
+            int verifica = sql.executeUpdate();
+            if (verifica>0){
+                JOptionPane.showMessageDialog(null, "Registro alterado com sucesso!");
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Aluno não encontrado");
+            }
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Erro SQL!");
+    }
+    }
+    public void Alterar(int numrgm, String nm, double n1, double n2){
+        try{
+            sql=conexao.prepareStatement("update alunos set nome='"+nm+"',nota1='"+n1+"',nota2='"+n2+"' where rgm="+numrgm);
+            int verifica=sql.executeUpdate();
+            if (verifica>0){
+                JOptionPane.showMessageDialog(null, "Registro alterado com sucesso!");
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Aluno não encontrado");
+            }
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Erro SQL!");
+        }
+    }
+    public double CalcMedia(double n1, double n2){
+        return (n1+n2)/2;
+        
+        
+    }
 }
