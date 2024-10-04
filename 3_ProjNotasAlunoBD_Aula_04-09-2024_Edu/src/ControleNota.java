@@ -109,7 +109,7 @@ public class ControleNota {
         }
         catch(Exception e){
             JOptionPane.showMessageDialog(null, "Erro SQL!");
-    }
+        }
     }
     public void Alterar(int numrgm, String nm, double n1, double n2){
         try{

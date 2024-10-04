@@ -25,10 +25,10 @@ public class UsuarioDAO {
             conexao = ConectaDB.conectar();
             Statement stmt = conexao.createStatement();
             //INSERT into usuario (login, fone, email, senha) VALUES ("ana", "(11)95588-3344", "ana@uol.com", "123456");
-            String sql = "INSERT into usuario (login, fone, email, senha) VALUES ('" + p_usuario.getLogin() +
-                                                                                  "', '" + p_usuario.getFone() + 
-                                                                                  "', '" + p_usuario.getEmail() +
-                                                                                  "', '" + p_usuario.getSenha() + "')";
+            String sql = "INSERT INTO usuario (login, fone, email, senha) VALUES ('" + p_usuario.getLogin() +
+                                                                                  "','" + p_usuario.getFone() + 
+                                                                                  "','" + p_usuario.getEmail() +
+                                                                                  "','" + p_usuario.getSenha() + "')";
             stmt.executeUpdate(sql); //GO - Insert, Delete, Update
             
             conexao.close();

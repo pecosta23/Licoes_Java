@@ -1,3 +1,6 @@
+
+import javax.swing.JOptionPane;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -266,13 +269,16 @@ public class FormNota extends javax.swing.JFrame {
     }//GEN-LAST:event_butSairActionPerformed
 
     private void butCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butCadastrarActionPerformed
+        try{
         controle.Cadastrar(Integer.parseInt(this.textrgm.getText()),this.textnome.getText(), 
-                Double.parseDouble(this.textnota1.getText()),Double.parseDouble(this.textnota2.getText()));
+                Double.parseDouble(this.textnota1.getText()),Double.parseDouble(this.textnota2.getText()));  
+        }catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(null,"Campos em branco!");
+        }
         this.textrgm.setText("");
         this.textnome.setText("");
         this.textnota1.setText("");
-        this.textnota2.setText("");
-        
+        this.textnota2.setText("");     
     }//GEN-LAST:event_butCadastrarActionPerformed
 
     private void butConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butConsultarActionPerformed

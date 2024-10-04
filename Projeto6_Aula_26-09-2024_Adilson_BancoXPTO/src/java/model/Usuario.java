@@ -16,6 +16,7 @@ public class Usuario {
         private String senha;
     //metodos
 
+        //setters
     public void setLogin(String p_login) {
         this.login = p_login;
     }
@@ -32,6 +33,7 @@ public class Usuario {
         this.senha = p_senha;
     }
 
+    //getters
     public String getLogin() {
         return login;
     }
