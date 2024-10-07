@@ -48,5 +48,6 @@
                 out.println("Erro, usuário não cadastrado");
             }
         %>
+        <p><a href="index_inscricao.html">Retornar</a>
     </body>
 </html>
