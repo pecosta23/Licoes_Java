@@ -3,11 +3,9 @@
     Created on : 6 de out. de 2024, 17:07:07
     Author     : pedro
 --%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="model1.Dados"%>
 <%@page import="model.dao.DadosDAO"%>
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -40,12 +38,18 @@
             dados.setEndereco(endereco);
                 
             DadosDAO dadosDAO = new DadosDAO();
-            //condição que leva ao metodo de inscrição da classe DAO
-            //caso seja inserido com sucesso (if - ok), erro (else - not ok)
-            if(dadosDAO.Inscricao(dados)){
-                out.println("Login realizado com sucesso");
-            }else{ 
-                out.println("Erro, usuário não cadastrado");
+            
+            //condição que verifica maioridade
+            if (dadosDAO.Validar(dtNasc)) {
+                //condição que leva ao metodo de inscrição da classe DAO
+                //caso seja inserido com sucesso (if - ok), erro (else - not ok)
+                if(dadosDAO.Inscricao(dados)){
+                    out.println("Inscrição realizada com sucesso");
+                }else{ 
+                    out.println("Erro, usuário não pode ser inscrito");
+                }
+            }else {
+            response.getWriter().println("Você deve ser maior de 18 anos para se inscrever no sorteio.");
             }
         %>
         <p><a href="index_inscricao.html">Retornar</a>

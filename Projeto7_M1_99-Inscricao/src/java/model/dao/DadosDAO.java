@@ -6,6 +6,8 @@ package model.dao;
 import java.sql.*;
 import model1.Dados;
 import util.ConexaoDB;
+import java.time.*;
+import java.time.format.*;
 /**
  *
  * @author pedro
@@ -40,5 +42,18 @@ public class DadosDAO {
             System.out.println("Exception " + ex);
             return false;
         }
+    }
+    
+    //classe publica type booleana pra ver se a pessoa tem mais de 18 anos
+    //porque estamos lidando com um sorteio de bebidas alcoolicas
+    public static boolean Validar(String DtNasc){
+        DateTimeFormatter validador = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate dataNascimento = LocalDate.parse(DtNasc, validador);
+        LocalDate dataHoje = LocalDate.now();
+        
+        //calculo
+        int idade = Period.between(dataNascimento, dataHoje).getYears();
+        
+        return idade >= 18;
     }
 }
