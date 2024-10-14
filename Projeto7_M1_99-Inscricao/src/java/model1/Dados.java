@@ -22,6 +22,8 @@ public class Dados {
     private String email;
     private String dtNasc;
     private String endereco;
+    private boolean checkNews;
+    
     
     //abaixo, realizando criação dos setters e getters
     //utilizando p_ para ficar mais fácil identificação de parâmetros
@@ -52,33 +54,41 @@ public class Dados {
     public void setEndereco(String p_endereco) {
         this.endereco = p_endereco;
     }
+
+    public void setCheckNews(boolean p_checkNews) {
+        this.checkNews = p_checkNews;
+    }
     
     //getters
     public String getNome() {
-        return nome;
+        return this.nome;
     }
 
     public String getCPF() {
-        return CPF;
+        return this.CPF;
     }
 
     public String getDDD() {
-        return DDD;
+        return this.DDD;
     }
 
     public String getNum() {
-        return num;
+        return this.num;
     }
 
     public String getEmail() {
-        return email;
+        return this.email;
     }
 
     public String getDtNasc() {
-        return dtNasc;
+        return this.dtNasc;
     }
 
     public String getEndereco() {
-        return endereco;
+        return this.endereco;
     } 
+
+    public boolean getCheckNews() {
+        return this.checkNews;
+    }
 }

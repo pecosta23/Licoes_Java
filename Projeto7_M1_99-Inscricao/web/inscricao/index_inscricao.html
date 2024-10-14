@@ -15,13 +15,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
         <div>Paricipe já do sorteio, se inscreva!</div><p>
         <form name="formInscricao" method="post" action="inscricao.jsp">
             Nome: <input type="text" name="nome" maxlength="100" required><p>
-            CPF: <input type="text" name="CPF" maxlength="11" pattern="\d{11}" required><p>
+            CPF (apenas dígitos): <input type="text" name="CPF" maxlength="11" pattern="\d{11}" required><p>
             DDD (Discagem Direta a Distância): <input type="text" name="DDD" maxlength="2" required><p>
             Número de telefone (Sem DDD): <input type="text" name="num" maxlength="9" required><p>
             E-mail: <input type="email" name="email" maxlength="60" required><p>
             Data de Nascimento: <input type="date" name="dtNasc" required><p>
             Endereço: <input type="text" name="endereco" maxlength="200" required><p>
-            <input type="reset" value="Limpar">
-            <input type="submit" value="Registrar">
+            <input type="checkbox" name="checkNews" value="checkNews">Gostaria de receber nossa newsletter?<p>    
+            <input type="reset" value="Limpar"><p>
+            <input type="submit" value="Registrar"><p>
+            <a href="../index.html">Retornar</a>
     </body>
 </html>

@@ -26,9 +26,11 @@
             String email = request.getParameter("email");
             String dtNasc = request.getParameter("dtNasc");
             String endereco = request.getParameter("endereco");
-            
+            String checkNews = request.getParameter("checkNews");
+                  
             //instanciando 
             Dados dados = new Dados();
+            //atribuição de valor
             dados.setNome(nome);
             dados.setCPF(CPF);
             dados.setDDD(DDD);
@@ -36,9 +38,14 @@
             dados.setEmail(email);
             dados.setDtNasc(dtNasc);
             dados.setEndereco(endereco);
-                
-            DadosDAO dadosDAO = new DadosDAO();
             
+            if(checkNews != null){
+                dados.setCheckNews(true);
+            }else{
+                dados.setCheckNews(false);
+            }
+            
+            DadosDAO dadosDAO = new DadosDAO();       
             //condição que verifica maioridade
             if (dadosDAO.Validar(dtNasc)) {
                 //condição que leva ao metodo de inscrição da classe DAO

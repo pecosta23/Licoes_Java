@@ -73,6 +73,12 @@ public class FormNota extends javax.swing.JFrame {
 
         jLabel4.setText("Nota 2");
 
+        textnota2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textnota2ActionPerformed(evt);
+            }
+        });
+
         butCadastrar.setText("Cadastrar");
         butCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -311,6 +317,10 @@ public class FormNota extends javax.swing.JFrame {
         this.textmedia.setText(""+controle.CalcMedia(Double.parseDouble(this.textnota1.getText()),
                 Double.parseDouble(this.textnota2.getText())));
     }//GEN-LAST:event_ButCalcMediaActionPerformed
+
+    private void textnota2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textnota2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textnota2ActionPerformed
 
     /**
      * @param args the command line arguments

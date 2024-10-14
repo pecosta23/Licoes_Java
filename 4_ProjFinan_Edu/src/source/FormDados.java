@@ -1,5 +1,8 @@
 package source;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /*
@@ -39,8 +42,6 @@ public class FormDados extends javax.swing.JFrame {
         textNumParc = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         textJuros = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        textnota2 = new javax.swing.JTextField();
         butCadastrar = new javax.swing.JButton();
         butListar = new javax.swing.JButton();
         butConsultar = new javax.swing.JButton();
@@ -48,13 +49,15 @@ public class FormDados extends javax.swing.JFrame {
         butSair = new javax.swing.JButton();
         textNotasAlunos = new javax.swing.JLabel();
         butExcluir = new javax.swing.JButton();
-        ButCalcMedia = new javax.swing.JButton();
-        textmedia = new javax.swing.JTextField();
+        ButCalcFinanSAC = new javax.swing.JButton();
         ButLimpaCampo = new javax.swing.JButton();
+        textIdFinan = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        ButCalcFinanPRICE = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Valor do Financiamento ");
+        jLabel1.setText("ID do Financiamento");
 
         textFinan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,8 +80,6 @@ public class FormDados extends javax.swing.JFrame {
                 textJurosActionPerformed(evt);
             }
         });
-
-        jLabel4.setText("Nota 2");
 
         butCadastrar.setText("Cadastrar");
         butCadastrar.addActionListener(new java.awt.event.ActionListener() {
@@ -124,16 +125,10 @@ public class FormDados extends javax.swing.JFrame {
             }
         });
 
-        ButCalcMedia.setText("Calcular Média");
-        ButCalcMedia.addActionListener(new java.awt.event.ActionListener() {
+        ButCalcFinanSAC.setText("Calcular Financiamento com SAC");
+        ButCalcFinanSAC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButCalcMediaActionPerformed(evt);
-            }
-        });
-
-        textmedia.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textmediaActionPerformed(evt);
+                ButCalcFinanSACActionPerformed(evt);
             }
         });
 
@@ -144,6 +139,21 @@ public class FormDados extends javax.swing.JFrame {
             }
         });
 
+        textIdFinan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textIdFinanActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setText("Valor do Financiamento ");
+
+        ButCalcFinanPRICE.setText("Calcular Financiamento com PRICE");
+        ButCalcFinanPRICE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButCalcFinanPRICEActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -151,97 +161,93 @@ public class FormDados extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(42, 42, 42)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(butAlterar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(butCadastrar))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(18, 18, 18)
-                                        .addComponent(butListar, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addGap(21, 21, 21)
-                                        .addComponent(butExcluir)))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(butConsultar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(butSair, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabel1)
                                 .addGap(38, 38, 38)
-                                .addComponent(ButLimpaCampo)
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                .addComponent(textIdFinan, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(42, 42, 42)
+                                .addComponent(textNumParc, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(4, 4, 4)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel2)
-                                        .addGap(104, 232, Short.MAX_VALUE)
-                                        .addComponent(jLabel4))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jLabel3)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(textJuros, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(textNumParc, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jLabel1)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(textFinan, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGap(45, 45, 45)
-                                        .addComponent(ButCalcMedia)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(textnota2, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(textmedia, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(11, 11, 11))))
+                                .addComponent(jLabel5)
+                                .addGap(18, 18, 18)
+                                .addComponent(textFinan, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(77, 77, 77)
+                                .addComponent(textJuros, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(71, 71, 71)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(ButCalcFinanPRICE)
+                            .addComponent(ButCalcFinanSAC, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(163, 163, 163)
+                        .addGap(54, 54, 54)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(butAlterar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(butCadastrar))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(butListar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(butExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(butConsultar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(butSair, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(70, 70, 70)
+                        .addComponent(ButLimpaCampo))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(226, 226, 226)
                         .addComponent(textNotasAlunos)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(textNotasAlunos)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(textFinan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ButCalcMedia)
-                            .addComponent(textmedia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(20, 20, 20)
+                        .addComponent(textNotasAlunos)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel4)
-                                .addComponent(textnota2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
+                                .addGap(141, 141, 141)
+                                .addComponent(ButCalcFinanSAC)
+                                .addGap(37, 37, 37)
+                                .addComponent(ButCalcFinanPRICE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(75, 75, 75)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(textIdFinan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(textFinan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel2)
-                                    .addComponent(textNumParc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(23, 23, 23)
+                                    .addComponent(textNumParc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel2))
+                                .addGap(26, 26, 26)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(textJuros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel3))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(butCadastrar)
                             .addComponent(butListar)
                             .addComponent(butConsultar))
                         .addGap(21, 21, 21))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(ButLimpaCampo)
-                        .addGap(3, 3, 3)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(butAlterar)
                     .addComponent(butSair)
                     .addComponent(butExcluir))
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         pack();
@@ -260,7 +266,12 @@ public class FormDados extends javax.swing.JFrame {
     }//GEN-LAST:event_butListarActionPerformed
 
     private void butAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butAlterarActionPerformed
-       
+        controle.Alterar(Integer.parseInt(this.textIdFinan.getText()), Double.parseDouble(this.textFinan.getText()), 
+                Integer.parseInt(this.textNumParc.getText()), Double.parseDouble(this.textJuros.getText()));
+        this.textIdFinan.setText("");
+        this.textFinan.setText("");
+        this.textNumParc.setText("");
+        this.textJuros.setText("");
     }//GEN-LAST:event_butAlterarActionPerformed
 
     private void butSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butSairActionPerformed
@@ -270,6 +281,7 @@ public class FormDados extends javax.swing.JFrame {
     private void butCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butCadastrarActionPerformed
         try{
             controle.Cadastrar(
+                    Integer.parseInt(this.textIdFinan.getText()),
                     Double.parseDouble(this.textFinan.getText()), 
                     Integer.parseInt(this.textNumParc.getText()), 
                     Double.parseDouble(this.textJuros.getText()));
@@ -284,30 +296,46 @@ public class FormDados extends javax.swing.JFrame {
     }//GEN-LAST:event_butCadastrarActionPerformed
 
     private void butConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butConsultarActionPerformed
-        
+        String consulta = controle.Consultar(Integer.parseInt(this.textIdFinan.getText()));
+        String vet[] = consulta.split(";");
+        this.textFinan.setText(vet[0]);
+        this.textNumParc.setText(vet[1]);
+        this.textJuros.setText(vet[2]);
     }//GEN-LAST:event_butConsultarActionPerformed
 
     private void butExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butExcluirActionPerformed
-        
+            try {
+                controle.Excluir(Integer.parseInt(this.textIdFinan.getText()));
+            } catch (SQLException ex) {
+                Logger.getLogger(FormDados.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        this.textIdFinan.setText("");   
     }//GEN-LAST:event_butExcluirActionPerformed
 
     private void ButLimpaCampoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButLimpaCampoActionPerformed
+        this.textIdFinan.setText("");
         this.textFinan.setText("");
         this.textNumParc.setText("");
         this.textJuros.setText("");
     }//GEN-LAST:event_ButLimpaCampoActionPerformed
 
-    private void textmediaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textmediaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textmediaActionPerformed
-
-    private void ButCalcMediaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButCalcMediaActionPerformed
-       
-    }//GEN-LAST:event_ButCalcMediaActionPerformed
+    private void ButCalcFinanSACActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButCalcFinanSACActionPerformed
+        this.textFinan.setText(""+controle.CalcularSAC(Double.parseDouble(this.textFinan.getText()),
+        Integer.parseInt(this.textNumParc.getText()), Double.parseDouble(this.textJuros.getText())));
+    }//GEN-LAST:event_ButCalcFinanSACActionPerformed
 
     private void textNumParcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textNumParcActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textNumParcActionPerformed
+
+    private void textIdFinanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textIdFinanActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textIdFinanActionPerformed
+
+    private void ButCalcFinanPRICEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButCalcFinanPRICEActionPerformed
+        this.textFinan.setText(""+controle.CalcularPRICE(Double.parseDouble(this.textFinan.getText()),
+        Integer.parseInt(this.textNumParc.getText()), Double.parseDouble(this.textJuros.getText())));
+    }//GEN-LAST:event_ButCalcFinanPRICEActionPerformed
 
     /**
      * @param args the command line arguments
@@ -325,15 +353,11 @@ public class FormDados extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FormNota.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FormNota.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FormNota.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FormNota.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(FormDados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+            //</editor-fold>
+            
         //</editor-fold>
 
         /* Create and display the form */
@@ -343,7 +367,8 @@ public class FormDados extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton ButCalcMedia;
+    private javax.swing.JButton ButCalcFinanPRICE;
+    private javax.swing.JButton ButCalcFinanSAC;
     private javax.swing.JButton ButLimpaCampo;
     private javax.swing.JButton butAlterar;
     private javax.swing.JButton butCadastrar;
@@ -354,12 +379,11 @@ public class FormDados extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JTextField textFinan;
+    private javax.swing.JTextField textIdFinan;
     private javax.swing.JTextField textJuros;
     private javax.swing.JLabel textNotasAlunos;
     private javax.swing.JTextField textNumParc;
-    private javax.swing.JTextField textmedia;
-    private javax.swing.JTextField textnota2;
     // End of variables declaration//GEN-END:variables
 }

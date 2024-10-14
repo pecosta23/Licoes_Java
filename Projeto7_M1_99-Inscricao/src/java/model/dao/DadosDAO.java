@@ -26,13 +26,14 @@ public class DadosDAO {
             Statement stmt = conexao.createStatement();
             //insert into dados (nome, CPF, DDD, num, email, dtNasc, endereco) 
             //values ("ana", "35525285812", "11", "996759988", "ana@testedasilva.com", "20/05/2001", "Rua Cruzes Fiel, 89");
-            String sql = "INSERT INTO dados (nome, CPF, DDD, num, email, dtNasc, endereco) VALUES ('" + p_dados.getNome() +
+            String sql = "INSERT INTO dados (nome, CPF, DDD, num, email, dtNasc, endereco, checkNews) VALUES ('" + p_dados.getNome() +
                                                                                                   "','" + p_dados.getCPF() +
                                                                                                   "','" + p_dados.getDDD() + 
                                                                                                   "','" + p_dados.getNum() +
                                                                                                   "','" + p_dados.getEmail() +
                                                                                                   "','" + p_dados.getDtNasc() +
-                                                                                                  "','" + p_dados.getEndereco() + "')";
+                                                                                                  "','" + p_dados.getEndereco() +
+                                                                                                   "'," + p_dados.getCheckNews() + ")";        
             stmt.executeUpdate(sql); //GO - Insert, Delete, Update
             //fechando conexao depois da inserção dos dados 
             conexao.close();

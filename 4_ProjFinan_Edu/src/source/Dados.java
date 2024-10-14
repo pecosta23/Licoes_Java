@@ -14,11 +14,20 @@ package source;
  */
 public class Dados {
     //atributos
+    private int idFinan;
     private double valorFinanciado;
     private int numParcelas;
     private double taxaJuros;
-
+    
+    //construtor
+    public Dados() {
+    }
+   
     //abaixo setters e getters
+    public void setIdFinan(int p_idFinan){
+        this.idFinan = p_idFinan;
+    }
+     
     public void setValorFinanciado(double p_valorFinanciado) {
         this.valorFinanciado = p_valorFinanciado;
     }
@@ -31,6 +40,10 @@ public class Dados {
         this.taxaJuros = p_taxaJuros;
     }
 
+    public int getIdFinan(){
+        return idFinan;
+    }
+    
     public double getValorFinanciado() {
         return valorFinanciado;
     }
