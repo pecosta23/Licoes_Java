@@ -116,6 +116,19 @@ public class ControleCalcFinan {
      
     //proximo metodo (botao de calcular do tipo SAC)
     public double CalcularSAC(double valorFinanciamento, int numParcelas, double taxaJuros){
+        //condições para analisar se algum dos valores for equivalente a zero
+        if (valorFinanciamento <= 0) {
+            System.out.println("O valor do financiamento deve ser maior que 0.");
+            return 0;
+        }
+        if (numParcelas <= 0) {
+            System.out.println("O numero de parcelas deve ser maior que 0.");
+            return 0;
+        }
+        if (taxaJuros <= 0) {
+            System.out.println("A taxa de juros deve ser maior que 0.");
+            return 0;
+        } 
         double amortizacao = valorFinanciamento/ numParcelas;
         
         System.out.println("Prestacao SAC:");
@@ -132,6 +145,19 @@ public class ControleCalcFinan {
     
     //proximo metodo (botao de calcular do tipo PRICE)
     public double CalcularPRICE(double valorFinanciamento, int numParcelas, double taxaJuros) {
+        //condições para validar se caso um dos valores informados seja 0
+        if (valorFinanciamento <= 0) {
+            System.out.println("O valor do financiamento deve ser maior que 0.");
+            return 0;
+        }
+        if (numParcelas <= 0) {
+            System.out.println("O numero de parcelas deve ser maior que 0.");
+            return 0;
+        }
+        if (taxaJuros <= 0) {
+            System.out.println("A taxa de juros deve ser maior que 0.");
+            return 0;
+        } 
         double j = taxaJuros;  // Taxa de juros por período mensal
 
         // Fórmula da prestação no sistema PRICE

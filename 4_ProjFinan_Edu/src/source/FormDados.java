@@ -322,7 +322,10 @@ public class FormDados extends javax.swing.JFrame {
             } catch(NumberFormatException e){
             JOptionPane.showMessageDialog(null, "Preencha o campo de ID de financiamento!");
             }
-        this.textIdFinan.setText("");   
+        this.textIdFinan.setText("");  
+        this.textFinan.setText("");
+        this.textNumParc.setText("");
+        this.textJuros.setText("");
     }//GEN-LAST:event_butExcluirActionPerformed
 
     private void ButLimpaCampoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButLimpaCampoActionPerformed
