@@ -65,7 +65,7 @@ public class FormDados extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setText("Numero de Parcelas");
+        jLabel2.setText("Número de Parcelas");
 
         textNumParc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -266,8 +266,13 @@ public class FormDados extends javax.swing.JFrame {
     }//GEN-LAST:event_butListarActionPerformed
 
     private void butAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butAlterarActionPerformed
-        controle.Alterar(Integer.parseInt(this.textIdFinan.getText()), Double.parseDouble(this.textFinan.getText()), 
-                Integer.parseInt(this.textNumParc.getText()), Double.parseDouble(this.textJuros.getText()));
+        try{
+            controle.Alterar(Integer.parseInt(this.textIdFinan.getText()), Double.parseDouble(this.textFinan.getText()), 
+            Integer.parseInt(this.textNumParc.getText()), Double.parseDouble(this.textJuros.getText()));
+        } catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(null, "Digite o ID de financiamento que deseja alterar. "
+                    + "Então, preencha todos os campos com números");
+        }
         this.textIdFinan.setText("");
         this.textFinan.setText("");
         this.textNumParc.setText("");
@@ -287,20 +292,26 @@ public class FormDados extends javax.swing.JFrame {
                     Double.parseDouble(this.textJuros.getText()));
         }
         catch(NumberFormatException e){
-            JOptionPane.showMessageDialog(null, "Preencha todos os compos");
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos com números");
         } 
-        //this.textrgm.setText("");
-        //this.textnome.setText("");
-        //this.textnota1.setText("");
-        //this.textnota2.setText("");          
+        
+        this.textIdFinan.setText("");
+        this.textFinan.setText("");
+        this.textNumParc.setText("");
+        this.textJuros.setText("");       
     }//GEN-LAST:event_butCadastrarActionPerformed
 
     private void butConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butConsultarActionPerformed
-        String consulta = controle.Consultar(Integer.parseInt(this.textIdFinan.getText()));
-        String vet[] = consulta.split(";");
-        this.textFinan.setText(vet[0]);
-        this.textNumParc.setText(vet[1]);
-        this.textJuros.setText(vet[2]);
+        try{
+            String consulta = controle.Consultar(Integer.parseInt(this.textIdFinan.getText()));
+            String vet[] = consulta.split(";");
+            this.textFinan.setText(vet[0]);
+            this.textNumParc.setText(vet[1]);
+            this.textJuros.setText(vet[2]);
+        }
+        catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(null, "Preencha o campo de 'ID do Financiamento' para consultar um financiamento!");
+        }
     }//GEN-LAST:event_butConsultarActionPerformed
 
     private void butExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butExcluirActionPerformed
@@ -308,6 +319,8 @@ public class FormDados extends javax.swing.JFrame {
                 controle.Excluir(Integer.parseInt(this.textIdFinan.getText()));
             } catch (SQLException ex) {
                 Logger.getLogger(FormDados.class.getName()).log(Level.SEVERE, null, ex);
+            } catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(null, "Preencha o campo de ID de financiamento!");
             }
         this.textIdFinan.setText("");   
     }//GEN-LAST:event_butExcluirActionPerformed
@@ -320,8 +333,16 @@ public class FormDados extends javax.swing.JFrame {
     }//GEN-LAST:event_ButLimpaCampoActionPerformed
 
     private void ButCalcFinanSACActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButCalcFinanSACActionPerformed
-        this.textFinan.setText(""+controle.CalcularSAC(Double.parseDouble(this.textFinan.getText()),
-        Integer.parseInt(this.textNumParc.getText()), Double.parseDouble(this.textJuros.getText())));
+        try{
+            this.textFinan.setText(""+controle.CalcularSAC(Double.parseDouble(this.textFinan.getText()),
+            Integer.parseInt(this.textNumParc.getText()), Double.parseDouble(this.textJuros.getText())));
+        } catch(NumberFormatException e){
+                JOptionPane.showMessageDialog(null, "Preencha todos os campos com números");
+        }
+        this.textIdFinan.setText("");
+        this.textFinan.setText("");
+        this.textNumParc.setText("");
+        this.textJuros.setText("");
     }//GEN-LAST:event_ButCalcFinanSACActionPerformed
 
     private void textNumParcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textNumParcActionPerformed
@@ -333,8 +354,16 @@ public class FormDados extends javax.swing.JFrame {
     }//GEN-LAST:event_textIdFinanActionPerformed
 
     private void ButCalcFinanPRICEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButCalcFinanPRICEActionPerformed
-        this.textFinan.setText(""+controle.CalcularPRICE(Double.parseDouble(this.textFinan.getText()),
-        Integer.parseInt(this.textNumParc.getText()), Double.parseDouble(this.textJuros.getText())));
+        try{   
+            this.textFinan.setText(""+controle.CalcularPRICE(Double.parseDouble(this.textFinan.getText()),
+            Integer.parseInt(this.textNumParc.getText()), Double.parseDouble(this.textJuros.getText())));
+        } catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos com números");
+        }
+        this.textIdFinan.setText("");
+        this.textFinan.setText("");
+        this.textNumParc.setText("");
+        this.textJuros.setText("");
     }//GEN-LAST:event_ButCalcFinanPRICEActionPerformed
 
     /**

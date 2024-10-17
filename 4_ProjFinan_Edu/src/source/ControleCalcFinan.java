@@ -51,8 +51,8 @@ public class ControleCalcFinan {
             sql = conexao.prepareStatement("select * from dados");
             lista = sql.executeQuery();
             while(lista.next()){
-                System.out.println("Valor Financiado:"+ lista.getString("valorFinanciado") + "   Número de Parcelas:" + lista.getString("numParcelas") 
-                        + "   Taxa Juros:" + lista.getString("taxaJuros"));
+                System.out.println("ID do Financiamento:"+ lista.getString("idFinan") + "   Valor Financiado:"+ lista.getString("valorFinanciado") 
+                        + "   Numero de Parcelas:" + lista.getString("numParcelas") + "   Taxa Juros:" + lista.getString("taxaJuros"));
             }
         }
         catch(SQLException e){
@@ -118,14 +118,14 @@ public class ControleCalcFinan {
     public double CalcularSAC(double valorFinanciamento, int numParcelas, double taxaJuros){
         double amortizacao = valorFinanciamento/ numParcelas;
         
-        System.out.println("Prestação SAC:");
+        System.out.println("Prestacao SAC:");
         
         for (int x = 1; x <= numParcelas; x++){
             double divida = valorFinanciamento - amortizacao * (x-1);
             double juros = divida * taxaJuros;
             double parcela = amortizacao * juros;
             
-            System.out.println(" Parcela " + x + ": Amortização -> " + amortizacao + ", Juros -> " + juros + ", Parcela Mensal -> " + parcela);
+            System.out.println(" Parcela " + x + ": Amortizacao -> " + amortizacao + ", Juros -> " + juros + ", Parcela Mensal -> " + parcela);
         }
         return 0;
     }
@@ -137,21 +137,19 @@ public class ControleCalcFinan {
         // Fórmula da prestação no sistema PRICE
         double parcela = valorFinanciamento * j / (1 - Math.pow(1 + j, -numParcelas));
 
-        System.out.println("Prestação PRICE: ");
+        System.out.println("Prestacao PRICE: ");
 
         for (int y = 1; y <= numParcelas; y++) {
             double divida = valorFinanciamento * Math.pow(1 + j, y) - parcela * (Math.pow(1 + j, y) - 1) / j;
             double juros = divida * j;
             double amortizacao = parcela - juros;
 
-            System.out.println("Parcela " + y + ": Amortização -> " + amortizacao + ", Juros -> " + juros + ", Parcela Mensal -> " + parcela);
+            System.out.println("Parcela " + y + ": Amortizacao -> " + amortizacao + ", Juros -> " + juros + ", Parcela Mensal -> " + parcela);
         }
         return 0;
     }
     
-    //próximo método (botão de alterar um financiamento consultado)
-    
-    
+    //próximo método (botão de exlcuir um financiamento consultado)
     public void Excluir(int idFinan) throws SQLException{
             sql=conexao.prepareStatement("delete from dados where idFinan="+idFinan);
             int x = sql.executeUpdate();
@@ -163,6 +161,7 @@ public class ControleCalcFinan {
             }
     }
     
+    //método alterar os dados de um financimaento (é possível consultar e alterar, ou mudar um dado que foi cadastrado errado)
     public void Alterar(int idFinan, double valorFinanciado, int numParcelas, double taxaJuros){
         try{
             sql=conexao.prepareStatement("update dados set valorFinanciado='"+valorFinanciado+"',numParcelas='"+numParcelas+"',taxaJuros='"+taxaJuros+"' where idFinan="+idFinan);
@@ -177,8 +176,5 @@ public class ControleCalcFinan {
         catch(HeadlessException | SQLException e){
             JOptionPane.showMessageDialog(null, "Erro SQL!");
         }
-    }
-    
-    
-    
+    }  
 }
