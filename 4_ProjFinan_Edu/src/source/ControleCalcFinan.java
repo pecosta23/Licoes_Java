@@ -46,10 +46,15 @@ public class ControleCalcFinan {
     }
     
     //metodo para listar os tipos de financimentos disponiveis (caso queira utilizar algum do banco de dados)
-    public void Listar(){
+    public void Listar() throws Exception{
         try{
             sql = conexao.prepareStatement("select * from dados");
             lista = sql.executeQuery();
+            
+            //if(lista.isBeforeFirst()){
+              //throw new Exception("Nenhum dado de financiamento cadastrado! Cadastre para listar e consultar financiamentos!");
+                //System.out.println("Nenhum dado de financiamento cadastrado! Cadastre para listar e consultar financiamentos!");
+            
             while(lista.next()){
                 System.out.println("ID do Financiamento:"+ lista.getString("idFinan") + "   Valor Financiado:"+ lista.getString("valorFinanciado") 
                         + "   Numero de Parcelas:" + lista.getString("numParcelas") + "   Taxa Juros:" + lista.getString("taxaJuros"));
@@ -115,7 +120,7 @@ public class ControleCalcFinan {
     }
      
     //proximo metodo (botao de calcular do tipo SAC)
-    public double CalcularSAC(double valorFinanciamento, int numParcelas, double taxaJuros){
+    public double CalcularSAC(int idFinan, double valorFinanciamento, int numParcelas, double taxaJuros){
         //condições para analisar se algum dos valores for equivalente a zero
         if (valorFinanciamento <= 0) {
             System.out.println("O valor do financiamento deve ser maior que 0.");
@@ -144,7 +149,7 @@ public class ControleCalcFinan {
     }
     
     //proximo metodo (botao de calcular do tipo PRICE)
-    public double CalcularPRICE(double valorFinanciamento, int numParcelas, double taxaJuros) {
+    public double CalcularPRICE(int idFinan, double valorFinanciamento, int numParcelas, double taxaJuros) {
         //condições para validar se caso um dos valores informados seja 0
         if (valorFinanciamento <= 0) {
             System.out.println("O valor do financiamento deve ser maior que 0.");

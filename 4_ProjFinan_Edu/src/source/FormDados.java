@@ -262,13 +262,19 @@ public class FormDados extends javax.swing.JFrame {
     }//GEN-LAST:event_textJurosActionPerformed
 
     private void butListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butListarActionPerformed
-        controle.Listar();
+        try {
+            controle.Listar();
+        } catch (Exception ex) {
+            Logger.getLogger(FormDados.class.getName()).log(Level.SEVERE, null, ex);
+        }       
     }//GEN-LAST:event_butListarActionPerformed
 
     private void butAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butAlterarActionPerformed
         try{
-            controle.Alterar(Integer.parseInt(this.textIdFinan.getText()), Double.parseDouble(this.textFinan.getText()), 
-            Integer.parseInt(this.textNumParc.getText()), Double.parseDouble(this.textJuros.getText()));
+            controle.Alterar(Integer.parseInt(this.textIdFinan.getText()), 
+                    Double.parseDouble(this.textFinan.getText()), 
+                       Integer.parseInt(this.textNumParc.getText()), 
+                         Double.parseDouble(this.textJuros.getText()));
         } catch(NumberFormatException e){
             JOptionPane.showMessageDialog(null, "Digite o ID de financiamento que deseja alterar. "
                     + "Então, preencha todos os campos com números");
@@ -337,8 +343,10 @@ public class FormDados extends javax.swing.JFrame {
 
     private void ButCalcFinanSACActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButCalcFinanSACActionPerformed
         try{
-            this.textFinan.setText(""+controle.CalcularSAC(Double.parseDouble(this.textFinan.getText()),
-            Integer.parseInt(this.textNumParc.getText()), Double.parseDouble(this.textJuros.getText())));
+            this.textFinan.setText(""+controle.CalcularSAC(Integer.parseInt(this.textIdFinan.getText()), 
+                    Double.parseDouble(this.textFinan.getText()), 
+                         Integer.parseInt(this.textNumParc.getText()), 
+                           Double.parseDouble(this.textJuros.getText())));
         } catch(NumberFormatException e){
                 JOptionPane.showMessageDialog(null, "Preencha todos os campos com números");
         }
@@ -358,8 +366,10 @@ public class FormDados extends javax.swing.JFrame {
 
     private void ButCalcFinanPRICEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButCalcFinanPRICEActionPerformed
         try{   
-            this.textFinan.setText(""+controle.CalcularPRICE(Double.parseDouble(this.textFinan.getText()),
-            Integer.parseInt(this.textNumParc.getText()), Double.parseDouble(this.textJuros.getText())));
+            this.textFinan.setText(""+controle.CalcularPRICE(Integer.parseInt(this.textIdFinan.getText()), 
+                    Double.parseDouble(this.textFinan.getText()),
+                         Integer.parseInt(this.textNumParc.getText()), 
+                           Double.parseDouble(this.textJuros.getText())));
         } catch(NumberFormatException e){
             JOptionPane.showMessageDialog(null, "Preencha todos os campos com números");
         }
