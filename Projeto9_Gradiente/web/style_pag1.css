@@ -1,0 +1,83 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 22 de out. de 2024, 16:11:19
+    Author     : pedro
+*/
+
+body {
+    background-color: white; /* Fundo branco */
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    position: relative;
+    width: 500px; /* Tamanho da esfera */
+    height: 500px; /* Tamanho da esfera */
+    background: radial-gradient(circle at 30% 30%, #ffcc80, #9575cd, #3e2723); /* Gradiente radial para efeito 3D */
+    border-radius: 50%; /* Forma de esfera */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(255, 255, 255, 0.1); /* Sombra externa e brilho interno */
+    animation: colorTransition 5s infinite; /* Animação de transição de cor */
+    background-size: 200% 200%; /* Isso faz a transição parecer mais fluida */
+}
+
+@keyframes colorTransition {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.text-content {
+    display: flex;
+    flex-direction: column; /* Deixa o texto em coluna (um acima do outro) */
+    justify-content: space-between; /* Mantém espaço entre os textos */
+    align-items: center;
+    height: 100%; /* Ocupa toda a altura da esfera */
+    padding: 50px 0; /* Adiciona espaçamento vertical */
+}
+
+h1, h2 {
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 30px; /* Tamanho da fonte para o título */
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 18px; /* Tamanho da fonte para o subtítulo */
+    font-weight: normal;
+    margin-top: 10px;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline; /* Sublinha ao passar o mouse */
+}
+
+

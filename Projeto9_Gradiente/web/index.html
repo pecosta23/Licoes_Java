@@ -8,10 +8,54 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style_pag1.css">
     </head>
     <body>
-        <div>TODO write content</div>
-         <a href="cadastro/indexCadastro.html">AQUI</a>
+        <div class="container">
+            <h2>Clique <a href="cadastro/indexCadastro.html">aqui</a> para cadastrar seus dados</h2>
+        </div>
+        <script>
+            const container = document.querySelector('.container');
+            let animationFrame; // Armazenar a animação do frame
+            let animationProgress = 0; // Progresso da animação
+
+            function startAnimation() {
+                // Inicia a animação do gradiente
+                animationFrame = requestAnimationFrame(animate);
+            }
+
+            function animate() {
+                // Atualiza a posição do fundo a cada frame
+                animationProgress = (animationProgress + 0.1) % 100; // Incrementa a posição
+                container.style.backgroundPosition = `${animationProgress}% 50%`;
+                animationFrame = requestAnimationFrame(animate); // Chama o próximo frame
+            }
+
+            container.addEventListener('mousemove', function(e) {
+                const rect = container.getBoundingClientRect();
+                const x = e.clientX - rect.left; // Posição X do mouse dentro da esfera
+                const y = e.clientY - rect.top;  // Posição Y do mouse dentro da esfera
+                const xPercent = (x / container.offsetWidth) * 100; // Porcentagem X
+                const yPercent = (y / container.offsetHeight) * 100; // Porcentagem Y
+
+                // Atualiza o gradiente com o ponto mais claro seguindo o mouse
+                container.style.background = `radial-gradient(circle at ${xPercent}% ${yPercent}%, #ffcc80, #9575cd, #3e2723)`;
+            });
+
+            document.addEventListener('click', function(event) {
+                // Verifica se o clique foi fora da esfera
+                const rect = container.getBoundingClientRect();
+                const isOutside = event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom;
+
+                if (isOutside) {
+                    // Reinicia a animação ao clicar fora da esfera
+                    cancelAnimationFrame(animationFrame); // Cancela a animação atual
+                    animationProgress = (animationProgress + 10) % 100; // Incrementa para continuar de onde parou
+                    startAnimation(); // Reinicia a animação
+                }
+            });
+
+            startAnimation(); // Inicia a animação ao carregar a página
+        </script>
     </body>
-   
 </html>

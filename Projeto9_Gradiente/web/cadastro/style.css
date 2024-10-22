@@ -1,0 +1,108 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 22 de out. de 2024, 10:48:02
+    Author     : pedro
+*/
+/* Animação de mudança de gradiente com mais suavidade */
+body {
+    background: linear-gradient(240deg, #3e2723, #9575cd, #ffcc80); /* Gradiente inicial (marrom escuro para roxo para laranja) */
+    background-size: 200% 200%;
+    animation: moveBackground 40s infinite linear; /* Animação de fundo */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    flex-direction: column;
+}
+
+/* Animação para o fundo girar */
+/* Animação para o fundo girar */
+@keyframes moveBackground {
+    0% {
+        background-position: 0% 50%;
+    }
+    25% {
+        background-position: 100% 50%;
+    }
+    50% {
+        background-position: 0% 50%;
+    }
+    75% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Estilos para o contêiner central */
+form {
+    background-color: rgba(255, 255, 255, 0.3); /* Transparente com 30% de opacidade */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Sombra leve */
+    max-width: 400px;
+    width: 100%;
+    text-align: left;
+    backdrop-filter: blur(10px); /* Efeito de desfoque no fundo visível */
+}
+
+/* Estilos para o título */
+h1 {
+    color: white;
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+/* Estilos para os campos de input */
+input[type="text"], input[type="email"], input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+/* Estilos para os botões */
+input[type="submit"], input[type="reset"] {
+    background-color: #9575cd;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px 5px;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover, input[type="reset"]:hover {
+    background-color: #5e35b1;
+}
+
+/* Estilos para os textos e campos */
+p {
+    margin: 0;
+    padding: 0;
+    font-size: 0.9em;
+    color: black; /* Alterar a cor para preto */
+}
+
+label {
+    font-size: 1em;
+    color: black; /* Alterar a cor dos labels para preto */
+}
+
+input[type="text"]:focus, input[type="email"]:focus, input[type="date"]:focus {
+    border: 2px solid #9575cd;
+    outline: none;
+}
