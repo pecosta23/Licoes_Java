@@ -24,13 +24,14 @@ public class PesquisaDAO {
             conexao = ConexaoDB.conectar();
             Statement stmt = conexao.createStatement();
             //
-            String sql = "INSERT INTO pesquisa (nome, email, Q1, Q2, Q3, Q4, Q5) VALUES ('"+ p_pesquisa.getNome()+
-                                                                                         "','" + p_pesquisa.getEmail()+
-                                                                                         "'," + p_pesquisa.getQ1()+
-                                                                                         "'," + p_pesquisa.getQ2()+
-                                                                                         "'," + p_pesquisa.getQ3()+ 
-                                                                                         "'," + p_pesquisa.getQ4()+
-                                                                                         "'," + p_pesquisa.getQ5()+ ")";        
+            String sql = "INSERT INTO pesquisa (nome, email, Q1, Q2, Q3, Q4, Q5) VALUES ('"
+                                                                                        + p_pesquisa.getNome() + "','" 
+                                                                                        + p_pesquisa.getEmail() + "'," 
+                                                                                        + p_pesquisa.getQ1() + "," 
+                                                                                        + p_pesquisa.getQ2() + "," 
+                                                                                        + p_pesquisa.getQ3() + "," 
+                                                                                        + p_pesquisa.getQ4() + "," 
+                                                                                        + p_pesquisa.getQ5() + ")";       
             stmt.executeUpdate(sql); //GO - Insert, Delete, Update
             //fechando conexao depois da inserção dos dados 
             conexao.close();
