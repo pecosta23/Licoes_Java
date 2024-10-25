@@ -6,11 +6,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     Created on : 22 de out. de 2024, 10:48:02
     Author     : pedro
 */
-/* Animação de mudança de gradiente com mais suavidade */
+/* Animação de mudança de gradiente com suavidade */
 body {
     background: linear-gradient(240deg, #3e2723, #9575cd, #ffcc80); /* Gradiente inicial (marrom escuro para roxo para laranja) */
     background-size: 200% 200%;
-    animation: moveBackground 40s infinite linear; /* Animação de fundo */
+    animation: moveBackground 60s infinite linear; /* Animação de fundo, agora com 60s para maior suavidade */
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -20,7 +20,6 @@ body {
     flex-direction: column;
 }
 
-/* Animação para o fundo girar */
 /* Animação para o fundo girar */
 @keyframes moveBackground {
     0% {
@@ -62,7 +61,7 @@ h1 {
 }
 
 /* Estilos para os campos de input */
-input[type="text"], input[type="email"], input[type="date"] {
+input[type="text"], input[type="email"], input[type="datetime-local"] {
     width: 100%;
     padding: 10px;
     margin: 10px 0;
@@ -94,15 +93,16 @@ p {
     margin: 0;
     padding: 0;
     font-size: 0.9em;
-    color: black; /* Alterar a cor para preto */
+    color: black; /* Cor preta para os textos */
 }
 
 label {
     font-size: 1em;
-    color: black; /* Alterar a cor dos labels para preto */
+    color: black; /* Cor preta para os labels */
 }
 
-input[type="text"]:focus, input[type="email"]:focus, input[type="date"]:focus {
+/* Foco nos campos */
+input[type="text"]:focus, input[type="email"]:focus, input[type="datetime-local"]:focus {
     border: 2px solid #9575cd;
     outline: none;
 }

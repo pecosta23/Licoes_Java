@@ -300,7 +300,6 @@ public class FormDados extends javax.swing.JFrame {
         catch(NumberFormatException e){
             JOptionPane.showMessageDialog(null, "Preencha todos os campos com números");
         } 
-        
         this.textIdFinan.setText("");
         this.textFinan.setText("");
         this.textNumParc.setText("");

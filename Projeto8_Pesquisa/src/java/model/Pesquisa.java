@@ -10,52 +10,73 @@ package model;
  */
 public class Pesquisa {
     //atributos
-    private String resposta1;
-    private String resposta2;
-    private String resposta3;
-    private String resposta4;
-    private String resposta5;
+    private String nome;
+    private String email;
+    private int Q1;
+    private int Q2;
+    private int Q3;
+    private int Q4;
+    private int Q5;
+    
     //constructor
     public Pesquisa() {
     }
-    //setters
-    public void setResposta1(String resposta1) {
-        this.resposta1 = resposta1;
+     
+    //set e get
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public void setResposta2(String resposta2) {
-        this.resposta2 = resposta2;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    
+    public void setQ1(int Q1) {
+        this.Q1 = Q1;
     }
 
-    public void setResposta3(String resposta3) {
-        this.resposta3 = resposta3;
+    public void setQ2(int Q2) {
+        this.Q2 = Q2;
     }
 
-    public void setResposta4(String resposta4) {
-        this.resposta4 = resposta4;
+    public void setQ3(int Q3) {
+        this.Q3 = Q3;
     }
 
-    public void setResposta5(String resposta5) {
-        this.resposta5 = resposta5;
-    }
-    //getters
-    public String getResposta1() {
-        return resposta1;
+    public void setQ4(int Q4) {
+        this.Q4 = Q4;
     }
 
-    public String getResposta2() {
-        return resposta2;
+    public void setQ5(int Q5) {
+        this.Q5 = Q5;
     }
 
-    public String getResposta3() {
-        return resposta3;
+    public int getQ1() {
+        return Q1;
     }
 
-    public String getResposta4() {
-        return resposta4;
+    public int getQ2() {
+        return Q2;
     }
 
-    public String getResposta5() {
-        return resposta5;
-    }                        
+    public int getQ3() {
+        return Q3;
+    }
+
+    public int getQ4() {
+        return Q4;
+    }
+
+    public int getQ5() {
+        return Q5;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getEmail() {
+        return email;
+    }
 }

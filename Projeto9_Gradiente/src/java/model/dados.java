@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package model;
+import java.time.LocalDateTime;
 
 /**
  *
@@ -12,7 +13,7 @@ public class dados {
     //atributos
     private String nome;
     private String email;
-    private String nasc;
+    private LocalDateTime nasc;
 
     //constructor
     public dados() {
@@ -27,7 +28,7 @@ public class dados {
         this.email = p_email;
     }
 
-    public void setNasc(String p_nasc) {
+    public void setNasc(LocalDateTime p_nasc) {
         this.nasc = p_nasc;
     }
     
@@ -40,7 +41,7 @@ public class dados {
         return this.email;
     }
 
-    public String getNasc() {
+    public LocalDateTime getNasc() {
         return this.nasc;
     }
 }

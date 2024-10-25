@@ -5,8 +5,9 @@
 package model.dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.Timestamp;
 import model.dados;
 import util.conecta;
 
@@ -19,11 +20,14 @@ public class dadosDao {
         Connection conexao = null;
         try{
             conexao = conecta.conectar();
-            Statement stmt = conexao.createStatement();
-            String sql = "INSERT INTO dados (nome, email, nasc) VALUES ('" + p_dados.getNome() +                                                                                         
-                                                                     "','" + p_dados.getEmail() +
-                                                                     "','" + p_dados.getNasc() + "')";        
-            stmt.executeUpdate(sql); //GO - Insert, Delete, Update
+            String sql = "INSERT INTO dados (nome, email, nasc) VALUES (?,?,?)";
+            PreparedStatement stmt = conexao.prepareStatement(sql);
+             
+            stmt.setString(1, p_dados.getNome());
+            stmt.setString(2, p_dados.getEmail());
+            stmt.setTimestamp(3, Timestamp.valueOf(p_dados.getNasc()));
+            
+            stmt.executeUpdate(); //GO - Insert, Delete, Update
             //fechando conexao depois da inserção dos dados 
             conexao.close();
             return true;

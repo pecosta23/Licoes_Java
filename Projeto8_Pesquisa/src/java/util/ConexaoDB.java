@@ -20,7 +20,7 @@ public class ConexaoDB {
         //tentando conectar ao banco
         try{
             Class.forName("com.mysql.jdbc.Driver"); //Type DB server port db, meu banco dbinscricaouser
-            conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/institutodb", "root", "");
+            conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/empresa", "root", "");
             return conexao;
         }
         //se der ruim, SQL Exception do tipo classe não encontrada

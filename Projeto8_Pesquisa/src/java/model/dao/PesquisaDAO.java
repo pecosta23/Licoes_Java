@@ -23,13 +23,14 @@ public class PesquisaDAO {
         try{
             conexao = ConexaoDB.conectar();
             Statement stmt = conexao.createStatement();
-            //insert into dados (nome, CPF, DDD, num, email, dtNasc, endereco) 
-            //values ("ana", "35525285812", "11", "996759988", "ana@testedasilva.com", "20/05/2001", "Rua Cruzes Fiel, 89");
-            String sql = "INSERT INTO pesquisa (resposta1, resposta2, resposta3, resposta4, resposta5) VALUES ('" + p_pesquisa.getResposta1()+
-                                                                                                  "','" + p_pesquisa.getResposta2()+
-                                                                                                  "','" + p_pesquisa.getResposta3()+ 
-                                                                                                  "','" + p_pesquisa.getResposta4()+
-                                                                                                  "','" + p_pesquisa.getResposta5()+ ")";        
+            //
+            String sql = "INSERT INTO pesquisa (nome, email, Q1, Q2, Q3, Q4, Q5) VALUES ('"+ p_pesquisa.getNome()+
+                                                                                         "','" + p_pesquisa.getEmail()+
+                                                                                         "'," + p_pesquisa.getQ1()+
+                                                                                         "'," + p_pesquisa.getQ2()+
+                                                                                         "'," + p_pesquisa.getQ3()+ 
+                                                                                         "'," + p_pesquisa.getQ4()+
+                                                                                         "'," + p_pesquisa.getQ5()+ ")";        
             stmt.executeUpdate(sql); //GO - Insert, Delete, Update
             //fechando conexao depois da inserção dos dados 
             conexao.close();
