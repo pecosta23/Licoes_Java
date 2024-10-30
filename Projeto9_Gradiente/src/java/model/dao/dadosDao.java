@@ -36,5 +36,10 @@ public class dadosDao {
             System.out.println("Exception " + ex);
             return false;
         }
+        
+        catch(ClassNotFoundException x){
+            System.out.println("Erro desconhcido" + x);
+            return false;
+        }
     }
 }
