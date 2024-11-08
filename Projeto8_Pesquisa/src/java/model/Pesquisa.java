@@ -10,6 +10,7 @@ package model;
  */
 public class Pesquisa {
     //atributos
+    private int ID;
     private String nome;
     private String email;
     private int Q1;
@@ -24,6 +25,10 @@ public class Pesquisa {
      
     //set e get
 
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+     
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -52,6 +57,10 @@ public class Pesquisa {
         this.Q5 = Q5;
     }
 
+    public int getID() {
+        return ID;
+    }
+    
     public int getQ1() {
         return Q1;
     }
