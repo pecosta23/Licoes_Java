@@ -14,7 +14,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<<<<<<< HEAD
         <title>Listando todos os dados</title>
+=======
+        <title>JSP Page</title>
+>>>>>>> 52af563aa8ed40b8e3c6c54e35b11c2e381873d3
     </head>
     <body>
         <h3>Matrículas dos alunos atuais</h3>

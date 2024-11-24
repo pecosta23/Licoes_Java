@@ -15,7 +15,11 @@
     <body>
         <h1>Resposta do servidor:</h1>
         <%
+<<<<<<< HEAD
             //Capturando os dados do form
+=======
+            // Capturando os dados do form
+>>>>>>> 52af563aa8ed40b8e3c6c54e35b11c2e381873d3
             String nome_completo = request.getParameter("nome_completo");
             String data_nascimento = request.getParameter("data_nascimento");
             String sexo = request.getParameter("sexo");
@@ -37,7 +41,11 @@
             String assinatura_contrato_servicos = request.getParameter("assinatura_contrato_servicos");
             String assinatura_termo_responsabilidade = request.getParameter("assinatura_termo_responsabilidade");
 
+<<<<<<< HEAD
             //Criando objeto e instanciando classes
+=======
+            // Criando objeto
+>>>>>>> 52af563aa8ed40b8e3c6c54e35b11c2e381873d3
             Info dados = new Info();
             dados.setNomeCompleto(nome_completo);
             dados.setDataNascimento(data_nascimento);
