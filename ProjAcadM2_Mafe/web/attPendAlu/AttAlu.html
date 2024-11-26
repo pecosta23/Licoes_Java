@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alteração de Informações</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="sidebar">
+        <img src="logo.png" alt="Logo Coliseu" class="logo-img">
+        <nav>
+            <a href="../matAlu/indexMat.html"><img src="Vector-3.png" alt="Matrícula" class="nav-icon"> Faça uma matrícula</a>
+            <a href="../mostraAlu/mostraDados.jsp"><img src="Vector-2.png" alt="Alunos" class="nav-icon"> Alunos matriculados</a> 
+            <a href="../pendAlu/indexPendAlu.html"><img src="Vector-1.png" alt="Pendências" class="nav-icon"> Pendências</a> 
+            <a href="../ExAlu/indexExAlu.html"><img src="Vector.png" alt="Excluir" class="nav-icon"> Exclua um registro</a>
+            <a href="../attPendAlu/AttAlu.html"><img src="Vector-4.png" alt="Alterar" class="nav-icon"> Altere um registro</a>
+        </nav>
+    </div>
+    <div class="main-content">
+        <h2>Alteração de dados:</h2>
+        <div class="form-container">
+            <form name="consultaPendencias" action="AttAluForm.jsp" method="POST">
+                <div class="search-bar">
+                    <img src="lupa.png" alt="Ícone de Lupa" class="search-icon">
+                    <input type="number" id="ID" name="ID" required placeholder="Busque pelo ID do aluno">
+                </div>
+                <button type="submit">Alterar</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
