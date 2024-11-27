@@ -10,50 +10,6 @@
     </head>
     <body>
         <!--<h1>Atualização de informações pessoais</h1>-->
-        <style>
-            body {
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: center;
-                    margin: 0;
-                    font-family: 'Arial', sans-serif;
-                    height: 100vh;
-                    background-color: #1d1d1b;
-                    color: #DADA79;
-                }
-
-                h1 {
-                    font-size: 24px;
-                    font-weight: 600;
-                    margin-bottom: 20px;
-                    color: #DADA79;
-                }
-
-                p {
-                    font-size: 18px;
-                    color: #ccc;
-                    margin-bottom: 20px;
-                }
-
-                b {
-                    color: #DADA79;
-                }
-
-                a {
-                    text-decoration: none;
-                    color: #1d1d1b;
-                    background-color: #DADA79;
-                    padding: 10px 20px;
-                    border-radius: 5px;
-                    transition: background-color 0.3s, color 0.3s;
-                }
-
-                a:hover {
-                    background-color: #ccc;
-                    color: #1d1d1b;
-                }    
-        </style>
         <%
         int ID = Integer.parseInt(request.getParameter("ID"));
         Info info = new Info();
@@ -198,12 +154,11 @@
         </form>
 
     </div>
-        <%       
+        <%
         } else {
             out.println("Resposta do Servidor:");
             out.println("<br><br><b>Aluno não encontrado</b>");
         }
-        %>    
-        <br><a href="../index.html">Retorno</a>
+        %>
     </body>
 </html>
