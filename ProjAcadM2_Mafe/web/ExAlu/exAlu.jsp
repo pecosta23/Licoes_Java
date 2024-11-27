@@ -55,7 +55,7 @@
         <h1>Resposta do Servidor:</h1>
         <%
             String mensagem = "";
-            try {
+            try{
                 int ID = Integer.parseInt(request.getParameter("ID"));
 
                 Info info = new Info();
@@ -64,17 +64,17 @@
 
                 if (infoDAO.ExAlu(info)) {
                     mensagem = "Aluno excluído com sucesso!";
-                } else {
-                    mensagem = "Erro, o registro não pode ser excluído.";
+                }else {
+                    mensagem = "Este ID não está associado a nenhum aluno!";
                 }
-            } catch (NumberFormatException e) {
-                mensagem = "ID inválido. Por favor, insira um número.";
-            } catch (Exception e) {
+            } catch(NumberFormatException e) {
+                mensagem = "ID inválido. Por favor digite apenas números!";
+            } catch(Exception e) {
                 mensagem = "Erro ao tentar excluir o aluno.";
-                e.printStackTrace();
             }
         %>
         <p>Status da Operação: <b><%= mensagem %></b></p>
         <p><a href="../index.html">Retorno</a></p>
+        
     </body>
 </html>

@@ -186,21 +186,31 @@ public class InfoDAO {
     }
 }
     
-    public boolean ExAlu(Info dados) throws ClassNotFoundException{
-        //realiza conexao
-        Connection conexao = null;
-        try{
+    public boolean ExAlu(Info dados) throws ClassNotFoundException {
+    Connection conexao = null;
+        try {
             conexao = ConexDB.conectar();
-            Statement stmt = conexao.createStatement();    
-            //dps de conexao executa update de delete o ID
-            String sql = "DELETE FROM alunos WHERE id=" + dados.getID();
-            stmt.executeUpdate(sql);//delete
-            return true;
-        }catch(SQLException ex){
-            System.out.println("Erro:" + ex);
+            Statement stmt = conexao.createStatement();
+
+            //primeiro verifica sse o cara existe no BD, como que vai excluir sem nem saber que existe...
+            String confereExis = "SELECT COUNT(*) AS total FROM alunos WHERE id=" + dados.getID();
+            ResultSet rs = stmt.executeQuery(confereExis);
+
+            //aqui ele pega os dados do select e bate no total, se for maior que 0 executa, se não o ID não existe no BD
+            if (rs.next() && rs.getInt("total") > 0) {
+                //exclui se existir
+                String sql = "DELETE FROM alunos WHERE id=" + dados.getID();
+                stmt.executeUpdate(sql);
+                return true;
+            } else {
+                //se não existe
+                return false;
+            }
+        } catch (SQLException ex) {
+            System.out.println("Erro: Não foi possível exlcuir o aluno");
             return false;
         }
-    }  
+}  
     
     public boolean AtualizarAlu(Info dados) throws ClassNotFoundException {
         //realiza conexao

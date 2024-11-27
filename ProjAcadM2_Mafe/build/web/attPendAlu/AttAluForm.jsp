@@ -10,6 +10,50 @@
     </head>
     <body>
         <!--<h1>Atualização de informações pessoais</h1>-->
+        <style>
+            body {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    margin: 0;
+                    font-family: 'Arial', sans-serif;
+                    height: 100vh;
+                    background-color: #1d1d1b;
+                    color: #DADA79;
+                }
+
+                h1 {
+                    font-size: 24px;
+                    font-weight: 600;
+                    margin-bottom: 20px;
+                    color: #DADA79;
+                }
+
+                p {
+                    font-size: 18px;
+                    color: #ccc;
+                    margin-bottom: 20px;
+                }
+
+                b {
+                    color: #DADA79;
+                }
+
+                a {
+                    text-decoration: none;
+                    color: #1d1d1b;
+                    background-color: #DADA79;
+                    padding: 10px 20px;
+                    border-radius: 5px;
+                    transition: background-color 0.3s, color 0.3s;
+                }
+
+                a:hover {
+                    background-color: #ccc;
+                    color: #1d1d1b;
+                }    
+        </style>
         <%
         int ID = Integer.parseInt(request.getParameter("ID"));
         Info info = new Info();
@@ -54,7 +98,7 @@
             <input type="text" id="id" name="id" value="<%= info.getID() %>" readonly="true"><br>
 
             <label for="nome_completo">Nome Completo:</label>
-            <input type="text" id="nome_completo" name="nome_completo" value="<%= info.getNomeCompleto() %>" required><br>
+            <input type="text" id="nome_completo" name="nome_completo" value="<%= info.getNomeCompleto() %>" maxlength="100" required><br>
 
             <label for="data_nascimento">Data de Nascimento:</label>
             <input type="date" id="data_nascimento" name="data_nascimento" value="<%= info.getDataNascimento() %>" required><br>
@@ -67,19 +111,19 @@
             </select><br>
 
             <label for="cpf">CPF:</label>
-            <input type="text" id="cpf" name="cpf" value="<%= info.getCpf() %>" required><br>
+            <input type="text" id="cpf" name="cpf" value="<%= info.getCpf() %>" maxlength="11" required><br>
 
             <label for="rg">RG:</label>
-            <input type="text" id="rg" name="rg" value="<%= info.getRg() %>" required><br>
+            <input type="text" id="rg" name="rg" value="<%= info.getRg() %>" maxlength="9" required><br>
 
             <label for="endereco">Endereço:</label>
-            <input type="text" id="endereco" name="endereco" value="<%= info.getEndereco() %>" required><br>
+            <input type="text" id="endereco" name="endereco" value="<%= info.getEndereco() %>" maxlength="200" required><br>
 
             <label for="telefone_contato">Telefone de Contato:</label>
-            <input type="tel" id="telefone_contato" name="telefone_contato" value="<%= info.getTelefoneContato() %>" required><br>
+            <input type="tel" id="telefone_contato" name="telefone_contato" value="<%= info.getTelefoneContato() %>" maxlength="11" required><br>
 
             <label for="email">E-mail:</label>
-            <input type="email" id="email" name="email" value="<%= info.getEmail() %>" required><br>
+            <input type="email" id="email" name="email" value="<%= info.getEmail() %>" maxlength="90" required><br>
 
             <label for="estado_civil">Estado Civil:</label>
             <select id="estado_civil" name="estado_civil" required>
@@ -91,13 +135,13 @@
 
             <!-- Histórico médico -->
             <label for="historico_medico">Histórico Médico:</label><br>
-            <textarea id="historico_medico" name="historico_medico" required><%= info.getHistoricoMedico() %></textarea><br>
+            <textarea id="historico_medico" name="historico_medico" maxlength="110" required><%= info.getHistoricoMedico() %></textarea><br>
 
             <label for="alergias">Alergias:</label><br>
-            <textarea id="alergias" name="alergias" required><%= info.getAlergias() %></textarea><br><br>
+            <textarea id="alergias" name="alergias" maxlength="110" required><%= info.getAlergias() %></textarea><br><br>
 
             <label for="uso_medicamento">Uso de Medicamentos:</label><br>
-            <textarea id="uso_medicamento" name="uso_medicamento" required><%= info.getUsoMedicamento() %></textarea><br>
+            <textarea id="uso_medicamento" name="uso_medicamento" maxlength="110" required><%= info.getUsoMedicamento() %></textarea><br>
 
             <label for="exame_medico">Exame Médico:</label><br>
             <input type="radio" id="exame_sim" name="exame_medico" value="1" <%= info.getExameMedico() == 1 ? "checked" : "" %>>
@@ -121,7 +165,7 @@
             </select><br>
 
             <label for="dados_bancarios">Dados Bancários:</label><br>
-            <textarea id="dados_bancarios" name="dados_bancarios" required><%= info.getDadosBancarios() %></textarea><br>
+            <textarea id="dados_bancarios" name="dados_bancarios" maxlength="110" required><%= info.getDadosBancarios() %></textarea><br>
 
             <label for="resp_legal">Responsável Legal:</label><br>
             <input type="radio" id="resp_sim" name="resp_legal" value="1" <%= info.getRespLegal() == 1 ? "checked" : "" %>>
@@ -154,11 +198,12 @@
         </form>
 
     </div>
-    <script src="script.js"></script>
         <%       
         } else {
-            out.println("Erro ao atualizar informações!");
+            out.println("Resposta do Servidor:");
+            out.println("<br><br><b>Aluno não encontrado</b>");
         }
         %>    
+        <br><a href="../index.html">Retorno</a>
     </body>
 </html>
