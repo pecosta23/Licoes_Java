@@ -19,26 +19,6 @@
         if(infoDAO.consDadosPorId(info) != null){
             //out.println("Registro encontrado! Atualize as informações"); 
         %>
-    <div class="sidebar">
-        <img src="logo.png" alt="Logo Coliseu" class="logo-img">
-        <nav>
-            <a href="<%= request.getContextPath() %>/matricula.jsp" class="active-link">
-                <img src="Vector-3.png" alt="Matrícula" class="nav-icon"> Faça uma matrícula
-            </a>
-            <a href="<%= request.getContextPath() %>/alunos.jsp">
-                <img src="Vector-2.png" alt="Alunos" class="nav-icon"> Alunos matriculados
-            </a>
-            <a href="<%= request.getContextPath() %>/pendencias.jsp">
-                <img src="Vector-1.png" alt="Pendências" class="nav-icon"> Pendências
-            </a>
-            <a href="<%= request.getContextPath() %>/excluir.jsp">
-                <img src="Vector.png" alt="Excluir" class="nav-icon"> Exclua um registro
-            </a>
-            <a href="<%= request.getContextPath() %>/alterar.jsp">
-                <img src="Vector-4 escuro.png" alt="Alterar" class="nav-icon"> Altere um registro
-            </a>
-        </nav>
-    </div>
     <div class="main-content">
         <h2>Formulário de Atualização</h2>
         <div class="steps">
