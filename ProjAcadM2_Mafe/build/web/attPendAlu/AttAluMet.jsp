@@ -109,11 +109,16 @@
             
             //atulizando dados 
             InfoDAO infoDAO = new InfoDAO();
-            if(infoDAO.AtualizarAlu(dados)){
-                out.println("Informações atualizadas com sucesso!<br>");
-            }else{
-                out.println("Erro, as alterações não foram salvas");
-            }         
+            if(infoDAO.Maior18(dataNascimento)){
+                if(infoDAO.AtualizarAlu(dados)){
+                    out.println("Informações atualizadas com sucesso!<br>");
+                }else{
+                    out.println("Erro, as alterações não foram salvas");
+                }            
+            } else{
+                //Menor de idade
+                out.println("<p>Erro, aluno <b>menor</b> de 18 anos. Verifique os dados de matrícula.</p>");
+            }
         %>
         <br><a href="../index.html">Retorno</a>
     </body>

@@ -100,9 +100,9 @@
             dados.setAssinaturaTermoResponsabilidade(Integer.parseInt(assinatura_termo_responsabilidade));
 
             //Inserindo
-            InfoDAO info = new InfoDAO();
-            if (info.Maior18(data_nascimento)){               
-                boolean sucesso = info.InserirAlu(dados);
+            InfoDAO infoDAO = new InfoDAO();
+            if (infoDAO.Maior18(data_nascimento)){               
+                boolean sucesso = infoDAO.InserirAlu(dados);
                 if (sucesso) {
                     out.println("<p>A matrícula do aluno foi realizada com sucesso!</p>");
                 } else {
