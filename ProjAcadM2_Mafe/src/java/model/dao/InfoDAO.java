@@ -160,7 +160,7 @@ public class InfoDAO {
             //Calcula a diferença entre a data de matrícula e a data atual (duração de 30 dias/ um mês)
             // ou seja, de mês em mês ele atualiza
             LocalDate atual = LocalDate.now();
-            //tive que colocar dataMatriculaLocal para entender que uma passagem para localDate
+            //tive que colocar dataMatriculaLocal para entender que é uma passagem para localDate
             LocalDate dataMatriculaLocal = dataMatricula.toLocalDate();
             long diferenca = ChronoUnit.MONTHS.between(dataMatriculaLocal, atual);
 
@@ -176,14 +176,7 @@ public class InfoDAO {
 
     } catch (SQLException e) {
         return "Erro ao consultar pendências.";
-    } finally {
-        try {
-            if (rs != null) rs.close();
-            if (stmt != null) stmt.close();
-            if (conex != null) conex.close();
-        } catch (SQLException ex) {
-        }
-    }
+    } 
 }
     
     public boolean ExAlu(Info dados) throws ClassNotFoundException {
